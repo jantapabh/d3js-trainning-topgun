@@ -23,7 +23,7 @@ var svg = d3.select('svg')
     .attr("height", svgHeight);
 
 var xScale = d3.scaleLinear()
-    .domain([0, d3.max(dataset)])
+    .domain([0, d3.max(data)])
     .range([0, svgWidth]);
 
 var yScale = d3.scaleLinear()
