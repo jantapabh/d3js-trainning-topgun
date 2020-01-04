@@ -9,6 +9,7 @@ async function getPm(pmData) {
 
     const result = [];
     const pm = [];
+    const a = [];
     const response = await axios.get(url);
     const data = response.data;
 
@@ -19,15 +20,20 @@ async function getPm(pmData) {
         const arrData = timeData.split('T');
         // const timeD = arrData.slice(0,1);
 
-        result.push(timeD);
+        result.push(arrData);
         pm.push(pmData);
 
-        const s = result[i][0];
+        const s = result[i];
+        // const ss = s.split(',');
+
+        a.push(s);
+
+
 
     }
 
     // console.log(result);
-    console.log(s);
+    console.log(a);
 
     // console.log(result.length);
 
