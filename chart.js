@@ -15,8 +15,10 @@ var svg = d3.select('svg')
 
 
 //Create group elemexts to hold pie chart
+var g = svg.append("g")
+.attr("transform", "translate(" + radius + "," + radius + ")");
 
-var g = d3.scaleOrdinal(d3.schemeCategory10);
+var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var pie = d3.pie().value(function (d) {
     return d.percentage;
