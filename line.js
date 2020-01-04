@@ -9,7 +9,6 @@ async function getPm(pmData) {
 
     const result = [];
     const pm = [];
-    const a = [];
     const response = await axios.get(url);
     const data = response.data;
 
@@ -23,28 +22,11 @@ async function getPm(pmData) {
         result.push(arrData);
         pm.push(pmData);
 
-        const s = result[i];
-        // const ss = s.split(',');
-
-        a.push(s);
-
-
-
     }
+    const timeD = result.slice(0,1);
 
-    // console.log(result);
-    console.log(a);
-  const aaa = [];
 
-    for (let i = data.length - 1; i >= 1; i--) {
-
-      const am = a.split(',');
-
-aaa.push(am);
-
-    }
-    console.log(aaa);
-
+    console.log(timeD);
 
     // console.log(result.length);
 
