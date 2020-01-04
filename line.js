@@ -22,7 +22,7 @@ async function getPm(pmData) {
 
     }
 
-    // console.log(result);
+    console.log(result);
 
     // console.log(result.length);
 
