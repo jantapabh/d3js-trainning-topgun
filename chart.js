@@ -20,7 +20,7 @@ var g = svg.append("g")
 
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
-var pie = d3.pie().value(function (d) {
+var pie = d3.pie().value(function(d) {
     return d.percentage;
 });
 
@@ -36,6 +36,10 @@ var arc = g.selectAll("arc")
 
 arc.append("path")
     .attr("d", path)
-    .attr("full", function (d) {
+    .attr("fill", function(d) {
         return color(d.data.percentage);
     });
+
+    var label = d3.arc()
+    .outerRadius(radius)
+    .innerRadius(0);
