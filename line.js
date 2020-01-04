@@ -100,16 +100,16 @@ function drawChart(data) {
 
     var line = d3.line()
         .x(function (d) {
-            return x(d.data)
+            return x(d.date)
         })
         .y(function (d) {
             return y(d.value)
         })
-    x.domain(d3.extent(pm, function (d) {
-        return d.result
+    x.domain(d3.extent(data, function (d) {
+        return d.date
     }));
-    y.domain(d3.extent(pm, function (d) {
-        return d.pmData
+    y.domain(d3.extent(data, function (d) {
+        return d.value
     }));
 
     g.append("g")
@@ -129,7 +129,7 @@ function drawChart(data) {
         .text("Price ($)");
 
         g.append("path")
-        .datum(pm)
+        .datum(date)
         .attr("fill", "none")
         .attr("stroke", "steelblue")
         .attr("stroke-linejoin", "round")
