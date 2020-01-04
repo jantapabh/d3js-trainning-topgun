@@ -1,32 +1,32 @@
-const axios = require("axios");
-const url = "http://35.194.179.37:5000/api/pm?fbclid=IwAR3Yzg2xZBB3TXgGSSw_DmXt8aIdlru44N_F1oISXfpxiaiDZelNNsYxXf4";
+// const axios = require("axios");
+// const url = "http://35.194.179.37:5000/api/pm?fbclid=IwAR3Yzg2xZBB3TXgGSSw_DmXt8aIdlru44N_F1oISXfpxiaiDZelNNsYxXf4";
 
-// ดึงข้อมูล pm 2.5 มาจาก api
+// // ดึงข้อมูล pm 2.5 มาจาก api
 
-async function getPm(pmData) {
+// async function getPm(pmData) {
 
-    const result = [];
-    const pm = [];
-    const response = await axios.get(url);
-    const data = response.data;
+//     const result = [];
+//     const pm = [];
+//     const response = await axios.get(url);
+//     const data = response.data;
 
-    for (let i = data.length - 1; i >= 1; i--) {
+//     for (let i = data.length - 1; i >= 1; i--) {
 
-        const pmData = data[i].pm;
-        const timeData = data[i]["Timestamp"];
-        const arrData = timeData.split('T');
-        // const test = arrData.split(',');
+//         const pmData = data[i].pm;
+//         const timeData = data[i]["Timestamp"];
+//         const arrData = timeData.split('T');
+//         // const test = arrData.split(',');
 
 
-        result.push(timeData);
-        pm.push(pmData);
+//         result.push(timeData);
+//         pm.push(pmData);
 
-    }
+//     }
 
-    // console.log(result.length);
+//     // console.log(result.length);
 
-    return { result, pm }
-}
+//     return { result, pm }
+// }
 
 
 
@@ -50,7 +50,28 @@ async function getPm(pmData) {
 // }
 
 
-function drawChart(pm) {
+const api = 'https://api.coindesk.com/v1/bpi/historical/close.json?start=2017-12-31&end=2018-04-01';
+
+
+
+document.addEventListener("DOMContentLoaded", function(event) {
+    fetch(api)
+    .then(function(response) {
+        return response.json();
+    })
+
+    .then(function(data) {
+
+        var parseData = parseData(data);
+        drawChart(parseData);
+
+    })
+    .catch(function(err) {
+        console.log(err);
+    });
+})
+
+function drawChart(data) {
 
     var svgWidth = 600, svgHeight = 400;
     var margin = {
@@ -79,10 +100,10 @@ function drawChart(pm) {
 
     var line = d3.line()
         .x(function (d) {
-            return x(d.result)
+            return x(d.data)
         })
         .y(function (d) {
-            return y(d.pmData)
+            return y(d.value)
         })
     x.domain(d3.extent(pm, function (d) {
         return d.result
@@ -119,11 +140,11 @@ function drawChart(pm) {
 }
 
 
-async function main() {
-    const pm = await getPm(url);
-    // const line = await parseData(pm);
-    const chart = await drawChart(pm);
+// async function main() {
+//     const pm = await getPm(url);
+//     // const line = await parseData(pm);
+//     const chart = await drawChart(pm);
 
-}
+// }
 
-main();
+// main();
