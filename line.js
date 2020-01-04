@@ -7,7 +7,7 @@ const url = "http://35.194.179.37:5000/api/pm?fbclid=IwAR3Yzg2xZBB3TXgGSSw_DmXt8
 
 async function getPm(pmData) {
 
-    const result = [][];
+    const result = [];
     const response = await axios.get(url);
     const data = response.data;
 
