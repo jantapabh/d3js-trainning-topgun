@@ -1,3 +1,5 @@
+import { color } from "d3";
+
 // javascript
 
 var data = [
@@ -12,14 +14,25 @@ var svg = d3.select('svg')
     .attr("height", svgHeight);
 
 
-   //Create group elemexts to hold pie chart
-   
-   var g = d3.scaleOrdinal(d3.schemeCategory10);
+//Create group elemexts to hold pie chart
 
-   var pie = d3.pie().value(function(d) {
-       return d.percentage;
-   });
+var g = d3.scaleOrdinal(d3.schemeCategory10);
 
-   var path = d3.arc()
-   .outerRadius(radius)
-   .innerRadius(0);
+var pie = d3.pie().value(function (d) {
+    return d.percentage;
+});
+
+var path = d3.arc()
+    .outerRadius(radius)
+    .innerRadius(0);
+
+var arc = g.selectAll("arc")
+    .data(pie(data))
+    .enter()
+    .append("g");
+
+arc.append("path")
+    .attr("d", path)
+    .attr("full", function (d) {
+        return color(d.data.percentage);
+    });
