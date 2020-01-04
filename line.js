@@ -34,6 +34,17 @@ async function getPm(pmData) {
 
     // console.log(result);
     console.log(a);
+  const aaa = [];
+
+    for (let i = data.length - 1; i >= 1; i--) {
+
+      const am = a.split(',');
+
+aaa.push(am);
+
+    }
+    console.log(aaa);
+
 
     // console.log(result.length);
 
