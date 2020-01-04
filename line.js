@@ -29,3 +29,5 @@ async function getPm(pmData) {
     return result;
 
 }
+
+getPm();
