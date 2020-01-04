@@ -35,6 +35,26 @@ var barChart = svg.selectAll("rect")
     return "translate("+ translate +")";
 });
 
+var text = svg.selectAll("text")
+.data(dataset)
+.enter()
+.append("text")
+.text(function(d) {
+    return d;
+
+})
+
+.attr("y", function(d, i) {
+    return svgHeight - d - 2;
+
+})
+
+.attr("x", function(d, i) {
+    return barWidth * i;
+
+})
+
+.attr("fill", "#A64C38");
 
 // d3.select('body')
 //     .selectAll('p')
