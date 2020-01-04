@@ -9,7 +9,7 @@ var barChart = svg.selectAll("rect")
     .enter()
     .append("rect")
     .attr("y", function (d) {
-        return chartHeight — d;
+        return chartHeight - d
     })
     .attr("height", function (d) {
         return d;
