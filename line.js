@@ -17,16 +17,13 @@ async function getPm(pmData) {
         const pmData = data[i].pm;
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T');
-        // const timeD = arrData.slice(0,1);
+        
 
-        result.push(arrData);
+        result.push(timeD);
         pm.push(pmData);
 
     }
-    const timeD = result.slice(0);
-
-
-    console.log(timeD);
+   
 
     // console.log(result.length);
 
