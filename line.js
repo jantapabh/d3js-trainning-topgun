@@ -1,8 +1,6 @@
 const axios = require("axios");
 const url = "http://35.194.179.37:5000/api/pm?fbclid=IwAR3Yzg2xZBB3TXgGSSw_DmXt8aIdlru44N_F1oISXfpxiaiDZelNNsYxXf4";
 
-
-
 // ดึงข้อมูล pm 2.5 มาจาก api
 
 async function getPm(pmData) {
@@ -17,18 +15,25 @@ async function getPm(pmData) {
         const pmData = data[i].pm;
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T');
+        // const test = arrData.split(',');
         
 
-        result.push(arrData);
+        result.push(timeData);
         pm.push(pmData);
 
     }
-   
+
 
     // console.log(result.length);
 
-    return result;
-
+    return ({ result, pm}
 }
 
-getPm();
+
+
+async function main() {
+    const getPm = await getPm(url);
+  
+}
+
+main();
