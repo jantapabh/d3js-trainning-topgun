@@ -32,12 +32,12 @@ async function parseData(pm) {
 
     const arr = [];
 
-    for (let i = 0; i < data.length; i++) {
+    for (let i = 0; i < pmData.length; i++) {
 
         arr.push({
 
             date: new Date(i),
-            value: + data[i]
+            value: + pm[i]
         });
     }
 
