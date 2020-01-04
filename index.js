@@ -9,56 +9,78 @@
 
 // // คำสั่ง select คือการเลือกและ append คือการบอกว่าเอาแบบที่เป็น paragraph และ text คือข้อความที่ต้องการให้แสดง
 
-var dataset = [80, 100, 56, 120, 180, 30, 40, 120, 160];
-var svgWidth = 500, svgHeight = 300, barPadding = 5;
-var barWidth = (svgWidth / dataset.length);
+// d3.axisTop()
+// d3.axisRight()
+// d3.axisBottom()
+// d3.axisLeft()
+
+var data = [80, 100, 56, 120, 180, 30, 40, 120, 160];
+var svgWidth = 500, svgHeight = 300;
+
 
 var svg = d3.select('svg')
     .attr("width", svgWidth)
     .attr("height", svgHeight);
 
-    var yScale = d3.scaleLinear()
+    var xScale = d3.scaleLinear()
     .domain([0, d3.max(dataset)])
-    .range([0, svgHeight]);
+    .range([0, svgWidth]);
 
-var barChart = svg.selectAll("rect")
-.data(dataset)
-.enter()
-.append("rect")
-.attr("y", function(d) {
+    var yScale = d3.scaleLinear()
+    .domain([0, d3.max(data)])
+    .range([0, svgHeight, 0]);
 
-    return svgHeight - d
-})
+    var x_axis = d3.axisBottom().scale(xScale);
+    var y_axis = d3.axisLeft().scale(yScale);
 
-.attr("height", function(d) {
-    return d;
-})
-.attr("width", barWidth - barPadding)
-.attr("transform", function (d, i) {
-    var translate = [barWidth * i, 0];
-    return "translate("+ translate +")";
-});
+    svg.append("g")
+    .attr("transform", "translate(50, 10)")
+    .call(y_axis);
 
-var text = svg.selectAll("text")
-.data(dataset)
-.enter()
-.append("text")
-.text(function(d) {
-    return d;
+    var xAxisTranslate = svgHeight - 20;
 
-})
+    svg.append("g")
+    .attr("transform", "translate(50, " + xAxisTranslate +")")
+    .call(x_axis);
 
-.attr("y", function(d, i) {
-    return svgHeight - d - 2;
+// var barChart = svg.selectAll("rect")
+// .data(dataset)
+// .enter()
+// .append("rect")
+// .attr("y", function(d) {
 
-})
+//     return svgHeight - d
+// })
 
-.attr("x", function(d, i) {
-    return barWidth * i;
+// .attr("height", function(d) {
+//     return d;
+// })
+// .attr("width", barWidth - barPadding)
+// .attr("transform", function (d, i) {
+//     var translate = [barWidth * i, 0];
+//     return "translate("+ translate +")";
+// });
 
-})
+// var text = svg.selectAll("text")
+// .data(dataset)
+// .enter()
+// .append("text")
+// .text(function(d) {
+//     return d;
 
-.attr("fill", "#A64C38");
+// })
+
+// .attr("y", function(d, i) {
+//     return svgHeight - d - 2;
+
+// })
+
+// .attr("x", function(d, i) {
+//     return barWidth * i;
+
+// })
+
+// .attr("fill", "#A64C38");
 
 // d3.select('body')
 //     .selectAll('p')
