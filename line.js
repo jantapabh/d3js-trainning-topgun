@@ -8,6 +8,7 @@ const url = "http://35.194.179.37:5000/api/pm?fbclid=IwAR3Yzg2xZBB3TXgGSSw_DmXt8
 async function getPm(pmData) {
 
     const result = [];
+    const pm = [];
     const response = await axios.get(url);
     const data = response.data;
 
@@ -16,14 +17,17 @@ async function getPm(pmData) {
         const pmData = data[i].pm;
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T');
-        const timeD = arrData.slice(0);
+        // const timeD = arrData.slice(0,1);
 
+        result.push(timeD);
+        pm.push(pmData);
 
-        result.push(arrData,pmData);
+        const s = result[i][0];
 
     }
 
-    console.log(result);
+    // console.log(result);
+    console.log(s);
 
     // console.log(result.length);
 
