@@ -19,7 +19,7 @@ async function getPm(pmData) {
         const arrData = timeData.split('T');
         
 
-        result.push(timeD);
+        result.push(arrData);
         pm.push(pmData);
 
     }
