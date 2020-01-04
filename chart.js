@@ -22,6 +22,7 @@ var pie = d3.pie().value(function (d) {
     return d.percentage;
 });
 
+
 var path = d3.arc()
     .outerRadius(radius)
     .innerRadius(0);
