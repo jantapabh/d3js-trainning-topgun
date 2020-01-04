@@ -28,7 +28,7 @@ var xScale = d3.scaleLinear()
 
 var yScale = d3.scaleLinear()
     .domain([0, d3.max(data)])
-    .range([0, svgHeight, 0]);
+    .range([svgHeight, 0]);
 
 var x_axis = d3.axisBottom()
     .scale(xScale);
