@@ -16,6 +16,7 @@ async function getPm(pmData) {
         const pmData = data[i].pm;
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T');
+        const timeD = arrData.slice(0);
 
 
         result.push(arrData,pmData);
