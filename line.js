@@ -23,7 +23,7 @@ async function getPm(pmData) {
         pm.push(pmData);
 
     }
-    const timeD = result.slice(0,1);
+    const timeD = result.slice(0);
 
 
     console.log(timeD);
