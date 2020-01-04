@@ -16,24 +16,41 @@ async function getPm(pmData) {
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T');
         // const test = arrData.split(',');
-        
+
 
         result.push(timeData);
         pm.push(pmData);
 
     }
 
-
     // console.log(result.length);
 
-    return ({ result, pm}
+    return { result, pm }
+}
+
+async function parseData(pm) {
+
+    const arr = [];
+
+    for (let i = 0; i < data.length; i++) {
+
+        arr.push({
+
+            date: new Date(i),
+            value: + data[i]
+        });
+    }
+
+    return arr;
+
 }
 
 
 
 async function main() {
-    const getPm = await getPm(url);
-  
+    const pm = await getPm(url);
+    const line = await parseData(pm);
+
 }
 
 main();
