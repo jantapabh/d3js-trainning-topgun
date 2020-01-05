@@ -24,6 +24,8 @@ async function getPm(pmData) {
         // time.push(arrData);
         
     }
+
+    //การแปลงข้อมูลเป็นไฟล์ csv
     const csvWriter = createCsvWriter({
         path: 'out.csv',
         header: [
