@@ -39,11 +39,8 @@ async function getPm(pmData) {
       .then(()=> console.log('The CSV file was written successfully'));
        
 
-
     // console.log(result);
     // console.log(time);
-
-    
 
 }
 
