@@ -18,8 +18,9 @@ async function getPm(pmData) {
         const pmData = data[i].pm;
         const timeData = data[i]["Timestamp"];
         const arrData = timeData.split('T')[0];
-        console.log(arrData)
         mainData.push({pm:pmData,date:arrData})
+
+
         // result.push(pmData);
         // time.push(arrData);
         
@@ -38,14 +39,11 @@ async function getPm(pmData) {
       .then(()=> console.log('The CSV file was written successfully'));
        
 
+
     // console.log(result);
     // console.log(time);
 
-    // console.log(resultmix[0]);
-
-    // console.log(result.length);
-
-    // return result;
+    
 
 }
 
