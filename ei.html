@@ -50,6 +50,8 @@ var yAxis = d3.svg.axis().scale(y)
 var valueline = d3.svg.line()
  .x(function(d) { return x(d.Month); })
  .y(function(d) { return y(d.High); });
+
+ 
  
 var valueline2 = d3.svg.line()
  .x(function(d) { return x(d.Month); })
